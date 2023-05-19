@@ -20,7 +20,7 @@ const ConnectToSequence = async (
     }
   }
 
-  const wallet = new sequence.Wallet(opts?.defaultNetwork || 'mainnet');
+  const wallet = await sequence.initWallet(opts?.defaultNetwork || 'mainnet');
 
   if (!wallet.isConnected()) {
     const connectDetails = await wallet.connect({
